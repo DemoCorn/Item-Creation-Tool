@@ -2,6 +2,24 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="SQLTools\sqlite3.c" />
+    <ClCompile Include="SQLTools\sqlite3.c">
+      <Filter>MiscItems</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Add.h">
+      <Filter>SQLCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="StringManipulation.h">
+      <Filter>MiscItems</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="SQLCommands">
+      <UniqueIdentifier>{c59cc926-4dc2-47f6-8eaa-8b2b92131e66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MiscItems">
+      <UniqueIdentifier>{a886d2ac-8d70-46df-89d2-ec1c94235f49}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
