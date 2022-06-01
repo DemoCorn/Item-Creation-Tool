@@ -146,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Add.h" />
+    <ClInclude Include="Delete.h" />
+    <ClInclude Include="Edit.h" />
+    <ClInclude Include="Output.h" />
     <ClInclude Include="StringManipulation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

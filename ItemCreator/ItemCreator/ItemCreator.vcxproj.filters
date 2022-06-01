@@ -13,6 +13,15 @@
     <ClInclude Include="StringManipulation.h">
       <Filter>MiscItems</Filter>
     </ClInclude>
+    <ClInclude Include="Delete.h">
+      <Filter>SQLCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="Output.h">
+      <Filter>SQLCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="Edit.h">
+      <Filter>SQLCommands</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="SQLCommands">

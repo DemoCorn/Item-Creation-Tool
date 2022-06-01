@@ -13,8 +13,10 @@ namespace StringManipulation
 			output.push_back(toParse.substr(0, pos));
 			toParse.erase(0, pos + ParseCharecter.length());
 		}
-		if (!toParse.empty());
-		output.push_back(toParse);
+		if (!toParse.empty())
+		{
+			output.push_back(toParse);
+		}
 		return output;
 	}
 
