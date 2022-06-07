@@ -14,28 +14,13 @@ public:
 			(std::string)"Try one of the following\n" +
 			"Add Item Name Jackson Brener 8\n" +
 			"Add Equipment HealthBoost 20 1\n" +
-			"Add Item Recipe Item4Amount 2 3\n" +
-			"Add Equipment OutputItem 1 48 \n";
+			"Add Recipe Item4Amount 2 3\n";
 	}
 
 	static void EditParse(std::vector<std::string> input, const sqlite3* dbase)
 	{
 		char* gError = 0;
 		std::string sql = "Update ";
-
-		if (input.size() > 2)
-		{
-			if (input[0] == "item" && input[1] == "recipe")
-			{
-				sql += "ItemRecipe";
-				input.erase(input.begin());
-			}
-			else if (input[0] == "equipment" && input[1] == "recipe")
-			{
-				sql += "EquipmentRecipe";
-				input.erase(input.begin());
-			}
-		}
 
 		if (input[0] == "item")
 		{
@@ -45,13 +30,9 @@ public:
 		{
 			sql += "Equipment";
 		}
-		else if (input[0] == "itemrecipe")
+		else if (input[0] == "recipe")
 		{
 			sql += "ItemRecipe";
-		}
-		else if (input[0] == "equipmentrecipe")
-		{
-			sql += "EquipmentRecipe";
 		}
 		else if (input[0] == "help")
 		{

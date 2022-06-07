@@ -13,28 +13,13 @@ public:
 			(std::string)"Try one of the following\n" +
 			"Delete Item 2\n" +
 			"Delete Equipment 0\n" +
-			"Delete Item Recipe 1\n" +
-			"Delete Equipment Recipe All\n";
+			"Delete Recipe All\n";
 	}
 
 	static void DeleteParse(std::vector<std::string> input, const sqlite3* dbase)
 	{
 		char* gError = 0;
 		std::string sql = "Delete From ";
-
-		if (input.size() > 2)
-		{
-			if (input[0] == "item" && input[1] == "recipe")
-			{
-				sql += "ItemRecipe";
-				input.erase(input.begin());
-			}
-			else if (input[0] == "equipment" && input[1] == "recipe")
-			{
-				sql += "EquipmentRecipe";
-				input.erase(input.begin());
-			}
-		}
 
 		if (input[0] == "item")
 		{
@@ -44,13 +29,9 @@ public:
 		{
 			sql += "Equipment";
 		}
-		else if (input[0] == "itemrecipe")
+		else if (input[0] == "recipe")
 		{
 			sql += "ItemRecipe";
-		}
-		else if (input[0] == "equipmentrecipe")
-		{
-			sql += "EquipmentRecipe";
 		}
 		else if (input[0] == "help")
 		{

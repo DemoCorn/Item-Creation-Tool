@@ -48,25 +48,7 @@ void CreateDatabase(const sqlite3* dbase)
 		"Foreign Key(Item2) References Item(ID)"
 		"Foreign Key(Item3) References Item(ID)"
 		"Foreign Key(Item4) References Item(ID)"
-		"Foreign Key(OutputItem) References Item(ID));"
-
-		"Create Table EquipmentRecipe("
-		"ID    integer		primary key autoincrement,"
-		"Item1 int,"
-		"Item2 int,"
-		"Item3 int,"
-		"Item4 int,"
-		"Item1Amount int,"
-		"Item2Amount int,"
-		"Item3Amount int,"
-		"Item4Amount int,"
-		"OutputItem int,"
-		"OutputAmount int,"
-		"Foreign Key(Item1) References Item(ID)"
-		"Foreign Key(Item2) References Item(ID)"
-		"Foreign Key(Item3) References Item(ID)"
-		"Foreign Key(Item4) References Item(ID)"
-		"Foreign Key(OutputItem) References Equipment(ID));";
+		"Foreign Key(OutputItem) References Item(ID));";
 
 	int ctable = sqlite3_exec(const_cast<sqlite3*>(dbase), sql.c_str(), NULL, 0, &gError);
 

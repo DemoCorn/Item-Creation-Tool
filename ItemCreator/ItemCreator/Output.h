@@ -9,8 +9,7 @@ public:
 			(std::string)"Try one of the following\n" +
 			"Output Item\n" +
 			"Output Equipment\n" +
-			"Output Item Recipe\n" +
-			"Output Equipment Recipe\n";
+			"Output Recipe\n";
 	}
 
 	static void OutputParse(std::vector<std::string> input, const sqlite3* dbase)
@@ -18,18 +17,7 @@ public:
 		char* gError = 0;
 		std::string sql = "Select * from ";
 
-		if (input.size() > 2)
-		{
-			if (input[0] == "item" && input[1] == "recipe")
-			{
-				sql += "ItemRecipe";
-			}
-			else if (input[0] == "equipment" && input[1] == "recipe")
-			{
-				sql += "EquipmentRecipe";
-			}
-		}
-		else if (input[0] == "item")
+		if (input[0] == "item")
 		{
 			sql += "Item";
 		}
@@ -37,13 +25,9 @@ public:
 		{
 			sql += "Equipment";
 		}
-		else if (input[0] == "itemrecipe")
+		else if (input[0] == "recipe")
 		{
 			sql += "ItemRecipe";
-		}
-		else if (input[0] == "equipmentrecipe")
-		{
-			sql += "EquipmentRecipe";
 		}
 		else if (input[0] == "help")
 		{

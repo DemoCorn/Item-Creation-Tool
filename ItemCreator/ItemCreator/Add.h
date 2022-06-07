@@ -14,24 +14,12 @@ public:
 			(std::string)"Try one of the following\n" +
 			"Add Item\n" +
 			"Add Equipment\n" +
-			"Add Item Recipe\n" +
-			"Add Equipment Recipe\n";
+			"Add Recipe\n";
 	}
 
 	static void AddParse(std::vector<std::string> input, const sqlite3* dbase)
 	{
-		if (input.size() > 1)
-		{
-			if (input[0] == "item" && input[1] == "recipe")
-			{
-				CreateItemRecipe(dbase);
-			}
-			else if (input[0] == "equipment" && input[1] == "recipe")
-			{
-				CreateEquipmentRecipe(dbase);
-			}
-		}
-		else if (input[0] == "item")
+		if (input[0] == "item")
 		{
 			CreateItem(dbase);
 		}
@@ -39,13 +27,9 @@ public:
 		{
 			CreateEquipment(dbase);
 		}
-		else if (input[0] == "itemrecipe")
+		else if (input[0] == "recipe")
 		{
-			CreateItemRecipe(dbase);
-		}
-		else if (input[0] == "equipmentrecipe")
-		{
-			CreateEquipmentRecipe(dbase);
+			CreateRecipe(dbase);
 		}
 		else if (input[0] == "help")
 		{
@@ -154,10 +138,11 @@ private:
 		}
 	}
 
-	static void CreateRecipe(const sqlite3* dbase, std::string sql)
+	static void CreateRecipe(const sqlite3* dbase)
 	{
 		char* gError = 0;
 		std::string input;
+		std::string sql = "Insert Into ItemRecipe(Item1, Item1Amount, Item2, Item2Amount, Item3, Item3Amount, Item4, Item4Amount, OutputItem, OutputAmount) Values(";
 
 		for (int i = 0; i < 4; ++i)
 		{
@@ -198,15 +183,5 @@ private:
 			std::cout << "Recipe failed to add" << std::endl;
 			std::cout << "Error: " << std::string(gError) << std::endl;
 		}
-	}
-
-	static void CreateItemRecipe(const sqlite3* dbase)
-	{
-		CreateRecipe(dbase, "Insert Into ItemRecipe(Item1, Item1Amount, Item2, Item2Amount, Item3, Item3Amount, Item4, Item4Amount, OutputItem, OutputAmount) Values(");
-	}
-
-	static void CreateEquipmentRecipe(const sqlite3* dbase)
-	{
-		CreateRecipe(dbase, "Insert Into Equipment(Item1, Item1Amount, Item2, Item2Amount, Item3, Item3Amount, Item4, Item4Amount, OutputItem, OutputAmount) Values(");
 	}
 };
