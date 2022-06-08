@@ -128,7 +128,7 @@ ItemLibrary::ItemLoader::~ItemLoader()
 {
 	for (Item* item : items)
 	{
-		delete(item);
+		delete(static_cast<ItemLibrary::Equipment*>(item));
 		item = nullptr;
 	}
 	for (Recipe* rec : recipes)
